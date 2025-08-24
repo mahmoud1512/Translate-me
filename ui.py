@@ -32,7 +32,6 @@ def translate_click():
             # Call the user-provided run(...) function. It should be available in the app's namespace.
             translator_agent=model.translator()
             result = translator_agent.run(src_lang_code, tgt_lang_code, src_text)
-            print("hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii")
             # store output in session state so the output text_area shows it
             st.session_state.output = result if result is not None else ""
         except NameError:

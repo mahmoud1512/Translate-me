@@ -27,7 +27,6 @@ class translator():
         final_prompt_template=ChatPromptTemplate.from_messages([("system",system_prompt),("user",user_prompt)])
 
         final_prompt=final_prompt_template.invoke({"lang1":f"{source_lang}","lang2":f"{target_lang}","sentence":f"{source_sentence}"})
-        print(final_prompt)
         response=self.llm.invoke(final_prompt)
         return response.content
 

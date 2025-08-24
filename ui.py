@@ -6,15 +6,15 @@ import model
 # Provide that function (or import it) in the same Python session when running this app.
 
 LANGUAGES = {
-    "English": "en",
-    "Arabic": "ar",
-    "French": "fr",
-    "Spanish": "es",
-    "German": "de",
-    "Chinese (Simplified)": "zh",
-    "Russian": "ru",
-    "Portuguese": "pt",
-    "Italian": "it",
+    "English": "English",
+    "Arabic": "Arabic",
+    "French": "French",
+    "Spanish": "Spanish",
+    "German": "German",
+    "Chinese (Simplified)": "Chinese",
+    "Russian": "Russian",
+    "Portuguese": "Portuguese",
+    "Italian": "Italian",
 }
 
 
@@ -30,7 +30,9 @@ def translate_click():
     with st.spinner("Translating..."):
         try:
             # Call the user-provided run(...) function. It should be available in the app's namespace.
-            result = model.run(src_lang_code, tgt_lang_code, src_text)
+            translator_agent=model.translator()
+            result = translator_agent.run(src_lang_code, tgt_lang_code, src_text)
+            print("hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii")
             # store output in session state so the output text_area shows it
             st.session_state.output = result if result is not None else ""
         except NameError:
